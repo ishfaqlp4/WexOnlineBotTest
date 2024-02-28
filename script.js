@@ -1,3 +1,12 @@
+// Check for session cookie only on initial load of index.html
+if (window.location.pathname === "/index.html") {
+    var authenticated = document.cookie.split('; ').find(row => row.startsWith('authenticated='));
+    if (authenticated) {
+        // Redirect to welcome page if user is already authenticated
+        window.location.href = "welcome.html";
+    }
+}
+
 document.getElementById('loginForm').addEventListener('submit', function(event) {
     event.preventDefault();
     var username = document.getElementById('username').value;
@@ -12,14 +21,5 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         window.location.href = "welcome.html";
     } else {
         document.getElementById('loginStatus').textContent = 'Invalid username or password. Please try again.';
-    }
-});
-
-// Check for session cookie on page load
-window.addEventListener('load', function() {
-    var authenticated = document.cookie.split('; ').find(row => row.startsWith('authenticated='));
-    if (authenticated) {
-        // Redirect to new page
-        window.location.href = "welcome.html";
     }
 });
