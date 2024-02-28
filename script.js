@@ -19,6 +19,6 @@ window.addEventListener('load', function() {
     var authenticated = document.cookie.split('; ').find(row => row.startsWith('authenticated='));
     if (authenticated) {
         //redirect to welcome page
-        window.location.href = "welcome.md";
+        window.location.href = "welcome.html";
     }
 });
