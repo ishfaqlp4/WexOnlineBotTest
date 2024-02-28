@@ -18,6 +18,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
 window.addEventListener('load', function() {
     var authenticated = document.cookie.split('; ').find(row => row.startsWith('authenticated='));
     if (authenticated) {
-        document.getElementById('loginStatus').textContent = 'Welcome back!';
+        //redirect to welcome page
+        window.location.href = "welcome.md";
     }
 });
