@@ -8,7 +8,8 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     if (username === 'user' && password === 'password') {
         // Set session cookie
         document.cookie = "authenticated=true; path=/";
-        document.getElementById('loginStatus').textContent = 'Login successful!';
+        // Redirect to new page
+        window.location.href = "welcome.html";
     } else {
         document.getElementById('loginStatus').textContent = 'Invalid username or password. Please try again.';
     }
@@ -18,7 +19,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
 window.addEventListener('load', function() {
     var authenticated = document.cookie.split('; ').find(row => row.startsWith('authenticated='));
     if (authenticated) {
-        //redirect to welcome page
+        // Redirect to new page
         window.location.href = "welcome.html";
     }
 });
